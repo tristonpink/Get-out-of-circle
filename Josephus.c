@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUM 100 //The total number of people who sit around a table in a circle .
-#define REP 16  //The counting number the REP-th person who calls this number will leave the table .
+#define NUM 100 //The total number of people who stands in a circle .
+#define REP 16  //The REP-th person who will be executed .
 
 int *jos(int n,int rec)
 {
     int a[n+1],b[n],i,j=1;   //From a[1] to a[n] is the number of 1 to n; and the numbers from b[0] to b[n-1] is the result of Josephus permutation.
     int *pio=a;
-    a[0]=999;              //The count begins at 0(zero),and the next count is 1.a[0] can be assigned any value beyong 0 and NUM.
+    a[0]=999;              //The count begins at 0(zero),and the next count is 1.a[0] can be assigned any value beyond 0 and NUM.
     for(i=1;i<=n;i++){    //Assign the value from 1 to n to a[1]......a[n] respectively .
 	pio++;
 	*pio=i;
