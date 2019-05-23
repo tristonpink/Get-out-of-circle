@@ -27,33 +27,17 @@ int *jos(int n,int rec)
 	else
    	   pio++;           //pio++ goes on with an exception, when it comes to a[n+1].
 	//printf("%ld\t",(pio-&a[0]));
-
-/*Psb. 1*/if((pio==&a[n+1])&&(a[n+1]==0)){  //When the counting comes to the end a[n+1] , and a[n+1]=0, the counting should be canceled , and restart from a[1]
-	           pio=&a[0];
-	           j=j-1;
-	       } 
-
-/*Psb. 2*/else if((pio==&a[n+1])&&(a[n+1]!=0)&&(j!=rec)) //When the counting comes to the end a[n+1] ,a[n+1]!=0,and j<rec , it restarts from a[1]
-     	           pio=&a[0];	   
-	       
-/*Psb. 3*/else if((pio==&a[n+1])&&(a[n+1]!=0)&&(j==rec)){
-	           b[i]=*pio;
-		   *pio=0;                               //Once the counting number(REP)comes to a person , we set the value to zero .
-   	           j=1;                   
-		   break;
+		
+/*Psb. 1*/if((j==rec)&&(*pio!=0)){
+	      b[i]=*pio;
+	      *pio=0;
+	      j=1;	                         
+	      break;
 	   }
 
-/*Psb. 4*/else if(*pio==0){
-	          j=j-1;
-	  }
-
-/*Psb. 5*/else if((j==rec)&&(pio!=&a[n+1])){
-		   b[i]=*pio;
-		   *pio=0;
-		   j=1;	                         
-		   break;
-	      }
-	   }	      
+/*Psb. 2*/else if(*pio==0)
+	           j=j-1;
+	 }	      
     }
 	
    for(i=0;i<n;i++)
